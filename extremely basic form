@@ -1,0 +1,16 @@
+<head>
+</head>
+<table border="1">
+<td><a href="home"/>Home</td>
+<table>
+<p>
+This is a form to fill out to create a seminar event.
+</p>
+<form>
+Seminar name:<input type="text" name="seminar"><br>
+Seminar Description:<input type="text" name="description"><br>
+Email list<input type="text" name="email"><br>
+<input type="submit" value="Submit">
+</form>
+<body>
+</body>
