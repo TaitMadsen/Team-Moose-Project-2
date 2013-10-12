@@ -1,0 +1,5 @@
+First prototype with all views implemented.  Several things need fixing:
+	Change title of tableView
+	Add tab bar images (not particularly important yet)
+	Keyboard not working correctly in EditSeminarViewController
+	EditSeminarViewController not saving upon finish.
