@@ -1,0 +1,3 @@
+SeminarScene 1.0 is an initial test build of the settings portion of the app.
+
+Many aspects of this build are not working, such as saving and loading the correct content of each screen.
