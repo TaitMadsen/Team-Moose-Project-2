@@ -1,0 +1,3 @@
+This throwaway prototype was used to test combining the day from one NSDate object and the time of another.
+
+Through this prototype, I learned I should try a different approach.
