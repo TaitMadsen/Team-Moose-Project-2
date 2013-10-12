@@ -1,0 +1,1 @@
+Now all internal aspects of the App work properly.  The next step is to provide functionality with the iPhone's Calendar and local notification system.  Images will be added later.
