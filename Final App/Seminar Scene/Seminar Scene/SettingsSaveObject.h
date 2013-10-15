@@ -19,3 +19,6 @@
 - (id) initWithStartTime:(NSDate *)st length:(NSTimeInterval)len location:(NSString *)loc alertTime:(NSDate *)at alertSwitchOn:(BOOL) aso;
 
 @end
+
+
+// This is an object used to save settings

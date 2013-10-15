@@ -23,6 +23,7 @@
         NSString *path = [self archivePath];
         SettingsSaveObject *sso = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
         
+        // If there is a settings save object, load it
         if (sso) {
             NSLog(@"Loading settigns");
             length = [sso length];
@@ -30,7 +31,7 @@
             startTime = [sso startTime];
             alertTime = [sso alertTime];
             alertSwitchOn = [sso alertSwitchOn];
-        } else {
+        } else { // ... otherwise initialize with default settings
             NSLog(@"Creating default default settings :D");
             
             length = 1.0;
@@ -75,10 +76,11 @@
     
 }
 
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self viewDidLoad];
+    [self viewDidLoad]; // This ensures that the most recent edits are visible
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,6 +89,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Defining methods for linked actions
 - (IBAction)LengthFieldDidEdit:(UITextField *)sender
 {
     [self setLength:[[sender text] doubleValue]];
@@ -151,6 +154,7 @@
     // In the nib, the textFields in question must have the File's Owner as a delegate.
 }
 
+// Necessary for saving
 - (NSString *)archivePath
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -158,6 +162,7 @@
     return [documentDirectory stringByAppendingPathComponent:@"SettingsSaveObject"];
 }
 
+// Saves the settings
 - (BOOL) save
 {
     SettingsSaveObject *sso = [[SettingsSaveObject alloc] initWithStartTime:startTime
@@ -184,7 +189,7 @@
         [alertTimeEditButton setAlpha:1];
         
     } else {
-        
+        // This is an animation to make the three associated views fade in
         [UIView animateWithDuration:0.2
                          animations:^{
                              [alertTimeLabel setAlpha:1];
@@ -203,7 +208,7 @@
         [alertTimeEditButton setAlpha:0];
     
     } else {
-        
+        // This is an animation to make the three associated views fade out
         [UIView animateWithDuration:0.2
                          animations:^{
                              [alertTimeLabel setAlpha:0];

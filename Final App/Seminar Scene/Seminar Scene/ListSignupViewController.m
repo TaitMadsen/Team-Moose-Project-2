@@ -12,6 +12,7 @@
 
 @synthesize subscriptionString;
 
+// constants for animating the keyboard
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 160;
 
@@ -45,7 +46,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 160;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+// Necessary for saving
 - (NSString *)subscriptionArchivePath
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -53,6 +54,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 160;
     return [documentDirectory stringByAppendingPathComponent:@"subscriptions.archive"];
 }
 
+// Save subscriptions
 - (BOOL) save
 {
     NSString *path = [self subscriptionArchivePath];
@@ -88,6 +90,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 160;
     // Save the textView
     [self setSubscriptionString:[subscriptionTextField text]];
     
+    // Animate the keyboard
     CGFloat animatedDistance = PORTRAIT_KEYBOARD_HEIGHT;
     
     CGRect viewFrame = self.view.frame;

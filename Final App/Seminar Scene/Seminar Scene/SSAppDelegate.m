@@ -21,6 +21,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
+    // Setting up the layout of the app:  The main view is a tab bar controller,
+    // It holds:
+    // * A navigation controller which holds the table view
+    // * The settings controller
+    // * The subscriptions controller
     [self setSettingsController:[[SettingsViewController alloc] init]];
     [[settingsController tabBarItem] setTitle:@"Settings"];
     [[settingsController tabBarItem] setImage:[UIImage imageNamed:@"options.png"]];

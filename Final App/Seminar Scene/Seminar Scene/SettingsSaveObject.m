@@ -12,6 +12,7 @@
 
 @synthesize startTime, length, location, alertTime, alertSwitchOn;
 
+// The next two methods allow this object to be archived and unarchived
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:startTime forKey:@"startTime"];
@@ -21,6 +22,7 @@
     [aCoder encodeBool:alertSwitchOn forKey:@"alertSwitchOn"];
 }
 
+// An initializer method by unarchiving
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
@@ -35,6 +37,7 @@
     return self;
 }
 
+// Initializes a new SettingsSaveObject
 - (id) initWithStartTime:(NSDate *)st length:(NSTimeInterval)len location:(NSString *)loc alertTime:(NSDate *)at alertSwitchOn:(BOOL)aso
 {
     self = [super init];

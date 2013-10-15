@@ -17,9 +17,11 @@
 
 @synthesize thisSeminar, alertsOn, saveBlock, isNewSeminar;
 
+// constants for animating the keyboard.
 static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
 static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
 
+// Initializing methods
 - (id) initAsEditOfSeminar:(Seminar *)seminar
 {
     self = [super init];
@@ -62,6 +64,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     return self;
 }
 
+// Methods called by iOS
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -98,6 +101,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:nil];
 }
 
+// Defining methods for the actions linked from the xib
 - (IBAction)doneButtonPressed:(UIBarButtonItem *)sender
 {
     // Make sure the three text areas are saved
@@ -226,6 +230,8 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     NSLog(@"textviewDidEndEditing");
     if (textView == refreshmentsTextView) {
         NSLog(@"It was refreshmentsTextView");
+        
+        // Animate the keyboard
         CGFloat animatedDistance = PORTRAIT_KEYBOARD_HEIGHT;
         
         CGRect viewFrame = self.view.frame;
@@ -241,6 +247,7 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     }
 }
 
+// A method to return a date object witht the date of one date object and the time of another
 - (NSDate *) dateObjectWithDateFrom:(NSDate *)dateDateObject andTimeFrom:(NSDate *)timeDateObject
 {
     unsigned dateFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
@@ -254,11 +261,13 @@ static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 216;
     return dateToReturn;
 }
 
+// Determines the end time of a seminar based on the start time and the length
 - (NSDate *)determineEndTime
 {
     return [[thisSeminar dateOfSeminar] dateByAddingTimeInterval:([thisSeminar seminarLength] * 3600)];
 }
 
+// Returns the string representation of a date object with a specified format style
 - (NSString *) date:(NSDate *)d asStringWithStyle:(NSDateFormatterStyle)style
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

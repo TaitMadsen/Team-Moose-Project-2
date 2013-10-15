@@ -12,6 +12,7 @@
 
 @synthesize dateOfSeminar, location, whatAbout, availableFood, seminarLength, alarmTime, calendarEventID, notification;
 
+// Init method, in Java you would call this a constuctor method
 - (id) initWithDate:(NSDate *)d length:(NSTimeInterval)le location:(NSString *)lo about:(NSString *)a food:(NSString *)f alarmTime:(NSDate *)alarm
 {
     self =[super init];
@@ -28,6 +29,7 @@
     return self;
 }
 
+// The next two methods allow this object to be archived.
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:dateOfSeminar forKey:@"dateOfSeminar"];
@@ -57,6 +59,8 @@
     return self;
 }
 
+// A method for returning the date of this seminar object as a string
+// with a specified format style
 - (NSString *) dateAsStringWithStyle:(NSDateFormatterStyle)style
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

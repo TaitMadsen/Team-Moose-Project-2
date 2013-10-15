@@ -45,7 +45,7 @@
     return self;
 }
 
-- (NSString *)seminarArchivePath
+- (NSString *)seminarArchivePath // Necessary for saving
 {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
