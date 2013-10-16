@@ -44,7 +44,7 @@ section#right {
 	width: 300px;
 }
 
-div#wrapper {
+body {
 	background: DarkCyan;
 }
 /* clearfix */
