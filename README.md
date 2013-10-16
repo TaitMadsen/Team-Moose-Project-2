@@ -10,6 +10,7 @@ The project is split into two branches, website and app.
 The app already has a readme attached to it. 
 
 For the website,
+
 1. Github Scans: Contains few of the paper prototypes that we initially came up with.
 
 2. Final Design Prototypes: Contains the ppt which accurately describes the final website that we planned to achieve when 
