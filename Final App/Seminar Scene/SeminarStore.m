@@ -95,12 +95,13 @@
 
 - (void) insertSeminar:(Seminar *)s
 {
+    // Inserts the seminar into the NSMutableArray allSeminars, making sure it is ordered with other seminars
     NSLog(@"Inserting Seminar.");
     int index = 0;
     BOOL hasAdded = NO;
-    while (index < allSeminars.count) {
+    while (index < allSeminars.count && !hasAdded) {
         
-        if ([[s dateOfSeminar] compare:[allSeminars objectAtIndex:index]] == NSOrderedDescending) {
+        if ([[s dateOfSeminar] compare:[[allSeminars objectAtIndex:index] dateOfSeminar]] == NSOrderedAscending) {
             [allSeminars insertObject:s atIndex:index];
             hasAdded = YES;
         }
